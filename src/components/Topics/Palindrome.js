@@ -37,7 +37,7 @@ return (
 <div className="puzzleBox filterObjectPB">
 <h4>Palindrome</h4>
 <span className="puzzleText">{ JSON.stringify(this.state.names) }</span>
-<input className="inputLine" onChange={ e => this.handleState(e.target.value) }></input>
+<input className="inputLine" onChange={ e => this.handleState(e.target.value)} placeholder="Possible palindrome? Find out!" ></input>
 <button className="confirmationButton" onClick={ () => this.filterMethod(this.state.userInput)}></button>
 <span className="resultsBox filterObjectRB">Palindrome: { JSON.stringify(this.state.palindrome) }</span>
 </div>

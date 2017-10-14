@@ -36,8 +36,8 @@ render() {
 return (
 <div className="puzzleBox filterObjectPB">
 <h4>Sum</h4>
-<input className="inputLine" onChange={ e => this.handleState1(e.target.value) }></input>
-<input className="inputLine" onChange={ e => this.handleState2(e.target.value) }></input>
+<input className="inputLine" onChange={ e => this.handleState1(e.target.value) }placeholder="First number?"></input>
+<input className="inputLine" onChange={ e => this.handleState2(e.target.value) }placeholder="Second number?"></input>
 <button className="confirmationButton" onClick={ () => this.filterMethod(this.state.number1, this.state.number2)}>Add</button>
 <span className="resultsBox filterObjectRB">Sum: { JSON.stringify(this.state.sum) }</span>
 </div>
