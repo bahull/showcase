@@ -5,7 +5,7 @@ export default class FilterObject extends Component {
               super();
 
               this.state = {
-                unFilteredArray:[
+                unFilteredArray:[ 
                   {
                     name: 'Jimmy Joe',
                     title: 'Hack0r',
@@ -28,17 +28,28 @@ export default class FilterObject extends Component {
             handleState (val) {
               this.setState({ userInput: val});
           }
-
+             
+          filterMethod(userInput){
+            var sift = [];
+            
+                       for (let i=0;i<this.state.unFilteredArray.length;i++){
+                         if (this.state.unFilteredArray[i].hasOwnProperty(userInput)) {
+                           sift.push(this.state.unFilteredArray[i]);
+                         }
+                       }
+                    this.setState({ filteredArray: sift})
+                     }
           
+
   
   render() {
       return (
         <div className="puzzleBox filterObjectPB">
             <h4>Filter Object</h4>
-            <span className="puzzleText"></span>
-            <input className="inputLine" onChange = { e => this.handleState(e.target.value) }></input>
-            <button className="confirmationButton" onClick = { () => this.filterMethod(this.state.userInput)}></button>
-            <span className="resultsBox filterObjectRB"></span>
+            <span className="puzzleText">Original: { JSON.stringify(this.state.unFilteredArray) }</span>
+            <input className="inputLine" onChange={ e => this.handleState(e.target.value) }></input>
+            <button className="confirmationButton" onClick={ () => this.filterMethod(this.state.userInput)}></button>
+            <span className="resultsBox filterObjectRB">Filtered: { JSON.stringify(this.state.filteredArray) }</span>
         </div>
       )
     }
